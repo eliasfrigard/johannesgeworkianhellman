@@ -65,7 +65,6 @@ const About = ({
   pageTitle: string,
   biography: string
 }) => {
-  console.log('🚀 || hero:', hero)
   return (
     <Layout>
       <Hero
