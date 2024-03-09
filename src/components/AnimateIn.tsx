@@ -11,6 +11,16 @@ const AnimateIn = ({
   disabled = false,
   delay = 0,
   ...rest
+} : {
+  children: React.ReactNode
+  className?: string
+  threshold?: number
+  triggerOnce?: boolean
+  animationType?: 'fade' | 'slide' | 'zoom'
+  slideDirection?: 'left' | 'right' | 'top' | 'bottom'
+  disabled?: boolean
+  delay?: number
+  rest?: any
 }) => {
   const [ref, inView] = useInView({ threshold, triggerOnce })
 
