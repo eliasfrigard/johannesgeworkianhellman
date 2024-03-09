@@ -16,6 +16,7 @@ const Header = ({
   uppercaseLinks = true, 
   fadeIn = false,
   font,
+  titleHidden = false
 } : {
   routes: { href: string, label: string }[]
   currentRoute: string
@@ -32,6 +33,7 @@ const Header = ({
   uppercaseLinks?: boolean
   fadeIn?: boolean
   font: string,
+  titleHidden?: boolean
 }) => {
   const [currentYear, setCurrentYear] = React.useState('')
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false)
@@ -176,7 +178,7 @@ const Header = ({
         `}
         >
           <div>
-            <Link className='flex flex-col gap-1 cursor-pointer text-[10px] font-bold tracking-widest uppercase' href='/'>
+            <Link className={`${titleHidden ? 'hidden' : 'flex'} flex-col gap-1 cursor-pointer text-[10px] font-bold tracking-widest uppercase`} href='/'>
               <p>{pageName}</p>
               <p className=' font-normal text-[9px]'>Musician / Artist / Hurdy-Gurdy</p>
             </Link>
@@ -188,7 +190,7 @@ const Header = ({
       </div>
 
       <div
-        className={`lg:hidden fixed flex flex-col justify-evenly items-center pt-[85px] h-screen w-screen bg-primary-700 z-40 duration-300 transform ${!mobileNavOpen && '-translate-y-[100vh]'
+        className={`lg:hidden  px-8 fixed flex flex-col justify-evenly items-center pt-[85px] h-screen w-screen bg-primary-700 z-40 duration-300 transform ${!mobileNavOpen && '-translate-y-[100vh]'
           }`}
       >
         <div className='container flex flex-col justify-center items-center gap-6 text-primary-100 font-khorla'>
@@ -196,7 +198,7 @@ const Header = ({
             <Link
               key={route.href}
               href={route.href}
-              className={`${activeLinkStyling(route.href)} mobileNavLink capitalize`}
+              className={`${activeLinkStyling(route.href)} mobileNavLink`}
             >
               {route.label}
             </Link>

@@ -4,6 +4,7 @@ import BandIcons from "./BandIcons"
 
 const Band = ({
   name,
+  shortName,
   biography,
   image,
   website,
@@ -12,6 +13,7 @@ const Band = ({
   youTube
  } : {
   name: string
+  shortName?: string
   biography: any
   image: any
   website?: string
@@ -43,7 +45,7 @@ const Band = ({
       </div>
 
       <BandIcons
-        bandName={name}
+        bandName={shortName || name}
         website={website}
         spotify={spotify}
         facebook={facebook}

@@ -22,11 +22,7 @@ export async function getStaticProps() {
   const pageRes = await contentful.getEntries({
     content_type: 'projectsPage',
   })
-
-  const bandRes = await contentful.getEntries({
-    content_type: 'band',
-  })
-
+  
   const page = pageRes.items[0].fields
 
   const hero: any = page?.hero
@@ -55,7 +51,7 @@ export async function getStaticProps() {
       },
       pageTitle: page.title,
       text: page.text,
-      bands: bandRes.items
+      bands: page.projects
     },
   }
 }
@@ -95,6 +91,7 @@ const About = ({
                 <Band
                   key={index}
                   name={band.fields.name}
+                  shortName={band.fields.shortName}
                   biography={band.fields.text}
                   image={band.fields.image}
                   website={band.fields.website}

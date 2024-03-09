@@ -66,6 +66,7 @@ export default function Home({
 }) {
   return (
     <Layout
+      titleHidden
       pageTitle='Johannes Geworkian Hellman'
       pageDescription='Johannes Geworkian Hellman is a composer and musician based in Stockholm, Sweden.'
     >

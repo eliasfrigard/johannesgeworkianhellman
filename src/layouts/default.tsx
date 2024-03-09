@@ -15,6 +15,7 @@ export default function Layout({
   footer = true,
   transparent = true,
   headerFadeIn = false,
+  titleHidden = false
 }: {
   children: React.ReactNode
   pageTitle: string
@@ -24,6 +25,7 @@ export default function Layout({
   footer?: boolean
   transparent?: boolean
   headerFadeIn?: boolean
+  titelHidden?: boolean
 }) {
   const router = useRouter()
 
@@ -95,7 +97,8 @@ export default function Layout({
         socialMedia={socialMedia} 
         pageName={pageName} 
         uppercaseLinks={false} 
-        font='font-khorla' 
+        font='font-khorla'
+        titleHidden={titleHidden}
       />
       <main
         style={{ transition: 'opacity-90 200ms ease-out' }}
