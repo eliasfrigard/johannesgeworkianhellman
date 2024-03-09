@@ -14,8 +14,8 @@ export default function Layout({
   pageUrl,
   footer = true,
   transparent = true,
+  titleHidden = false,
   headerFadeIn = false,
-  titleHidden = false
 }: {
   children: React.ReactNode
   pageTitle: string
@@ -25,7 +25,7 @@ export default function Layout({
   footer?: boolean
   transparent?: boolean
   headerFadeIn?: boolean
-  titelHidden?: boolean
+  titleHidden?: boolean
 }) {
   const router = useRouter()
 
