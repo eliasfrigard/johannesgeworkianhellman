@@ -5,6 +5,7 @@ import Container from '@/components/Container'
 import { createClient } from 'contentful'
 import { getPlaiceholder } from 'plaiceholder'
 
+
 import {
   Hero,
   getImageBuffer
