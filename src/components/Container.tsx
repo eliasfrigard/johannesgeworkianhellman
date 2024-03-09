@@ -8,8 +8,8 @@ const Container = ({
   className?: string
 }) => {
   return (
-    <div className='w-full flex justify-center items-center'>
-      <div className={`w-full h-full container bg-gray-200 my-16 ${className}`}>
+    <div className='w-full flex justify-center items-center px-3 md:px-0'>
+      <div className={`w-full h-full container my-8 lg:my-16 ${className}`}>
         {children}
       </div>
     </div>

@@ -42,7 +42,9 @@ const Header = ({
   }
 
   const activeLinkStyling = (path: string) => {
-    const style = 'text-primary-600'
+    if (currentRoute !== path) return
+
+    const style = 'font-bold'
 
     if (currentRoute.startsWith(path)) return style
   }
@@ -72,12 +74,21 @@ const Header = ({
       <AnimateIn
         disabled={!fadeIn}
         delay={1000}
-        className={`w-full flex justify-center fixed top-0 items-center z-50 ${!transparent && scrolled ? 'backdrop-blur bg-primary-700' : ''
-          } bg-opacity-70 duration-500`}
+        className={`
+          w-full 
+          flex 
+          justify-center 
+          fixed 
+          top-0 
+          items-center 
+          z-50 
+          ${!transparent || scrolled ? 'backdrop-blur bg-primary-700' : ''}
+          bg-opacity-70 
+          duration-500
+        `}
       >
         <div
           className={`
-          container
           hidden
           lg:gap-16
           lg:flex
@@ -156,16 +167,18 @@ const Header = ({
           h-[85px]
           w-full
           tracking-wide
+          ${!transparent || scrolled ? 'backdrop-blur bg-primary-700' : ''}
+          text-primary-300
           container
           px-8
+          duration-300
           ${font}
         `}
         >
           <div>
-            <Link href='/'>
-              <p className='cursor-pointer text-2xl mt-[5px] font-bold tracking-widest uppercase text-primary-100'>
-                {pageName}
-              </p>
+            <Link className='flex flex-col gap-1 cursor-pointer text-[10px] font-bold tracking-widest uppercase' href='/'>
+              <p>{pageName}</p>
+              <p className=' font-normal text-[9px]'>Musician / Artist / Hurdy-Gurdy</p>
             </Link>
           </div>
           <div>
@@ -175,7 +188,7 @@ const Header = ({
       </div>
 
       <div
-        className={`lg:hidden fixed flex flex-col justify-evenly items-center pt-[85px] h-screen w-screen bg-primary-950 z-40 duration-300 transform ${!mobileNavOpen && '-translate-y-[100vh]'
+        className={`lg:hidden fixed flex flex-col justify-evenly items-center pt-[85px] h-screen w-screen bg-primary-700 z-40 duration-300 transform ${!mobileNavOpen && '-translate-y-[100vh]'
           }`}
       >
         <div className='container flex flex-col justify-center items-center gap-6 text-primary-100 font-khorla'>
@@ -190,7 +203,7 @@ const Header = ({
           ))}
         </div>
 
-        <div className='flex justify-center items-center gap-6 text-primary-100'>
+        <div className='flex justify-center items-center gap-6 text-primary-300'>
           {socialMedia?.phone && (
             <a href={`tel:${socialMedia.phone}`}>
               <BsTelephone className='soMeIcon text-xl antialiased' />
@@ -222,7 +235,7 @@ const Header = ({
             </a>
           )}
         </div>
-        <div className={`tracking-wide text-sm opacity-70 text-center text-primary-100 ${font}`}>
+        <div className={`tracking-wide text-sm opacity-70 text-center text-primary-300 ${font}`}>
           <p className='text-s mb-2'>{`Copyright ${currentYear} © ${pageName}`}</p>
           <a href='mailto:' className='text-xs underline'>
             {socialMedia?.email}

@@ -13,7 +13,7 @@ export default function Layout({
   imageUrl,
   pageUrl,
   footer = true,
-  transparent = false,
+  transparent = true,
   headerFadeIn = false,
 }: {
   children: React.ReactNode
@@ -89,8 +89,8 @@ export default function Layout({
         <meta property='og:type' content='website' />
       </Head>
       <Header
-        transparent={false}
-        currentRoute='/'
+        transparent={transparent}
+        currentRoute={router.pathname}
         routes={routes} 
         socialMedia={socialMedia} 
         pageName={pageName} 
@@ -99,7 +99,7 @@ export default function Layout({
       />
       <main
         style={{ transition: 'opacity-90 200ms ease-out' }}
-        className={`bg-primary-100 pt-[85px] fade-in ${loading ? 'opacity-0' : 'opacity-100'}`}
+        className={`minContainerHeight bg-primary-100 pt-[85px] fade-in ${loading ? 'opacity-0' : 'opacity-100'}`}
       >
         {children}
       </main>

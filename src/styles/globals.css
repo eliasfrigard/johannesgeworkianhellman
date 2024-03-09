@@ -124,5 +124,25 @@ a {
     margin-left: 3px;
     color: theme('colors.primary.300');
   }
+
+  .minContainerHeight {
+    min-height: calc(100vh - 85px);
+  }
+
+  .hover-effect-container:hover .icon {
+    color: theme('colors.primary.300');
+  }
+
+  .hover-effect-container:hover .iconContainer {
+    background-color: theme('colors.primary.600');
+  }
+
+  .hover-effect-container:hover .firstLine {
+    width: 40%;
+  }
+
+  .hover-effect-container:hover .secondLine {
+    width: 60%;
+  }
 }
 

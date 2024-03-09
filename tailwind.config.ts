@@ -14,15 +14,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-    },
-    colors: {
-      primary: {
-        300: '#D9D9D9',
-        400: '#8C8C8C',
-        500: '#595959',
-        600: '#262626',
-        700: '#0D0D0D',
-      }
+      colors: {
+        primary: {
+          300: '#D9D9D9',
+          400: '#8C8C8C',
+          500: '#595959',
+          600: '#262626',
+          700: '#0D0D0D',
+        }
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

@@ -106,7 +106,7 @@ const Hero = ({
         {overlay && (
           <AnimateIn
             delay={1000}
-            className='absolute w-full h-screen bg-primary-950 bg-opacity-70 backdrop-blur'
+            className='absolute w-full h-full bg-primary-950 bg-opacity-70 backdrop-blur'
           >
             <></>
           </AnimateIn>
