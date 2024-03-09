@@ -66,7 +66,7 @@ const About = ({
   biography: string
 }) => {
   return (
-    <Layout>
+    <Layout pageTitle={pageTitle}>
       <Hero
         spaced={false}
         Image={Image}

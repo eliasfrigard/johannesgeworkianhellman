@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Layout from "@/layouts/default"
-import Container from "@/components/Container"
 import type { ContentfulImage } from '../types'
 
 import { createClient } from 'contentful'
@@ -59,16 +58,17 @@ export async function getStaticProps() {
 
 export default function Home({
   hero,
-  mobileHero
+  mobileHero,
+  pageTitle,
 } : {
   hero: ContentfulImage,
   mobileHero: ContentfulImage,
+  pageTitle: string
 }) {
   return (
     <Layout
       titleHidden
-      pageTitle='Johannes Geworkian Hellman'
-      pageDescription='Johannes Geworkian Hellman is a composer and musician based in Stockholm, Sweden.'
+      pageTitle={pageTitle}
     >
       <Hero
         spaced={false}

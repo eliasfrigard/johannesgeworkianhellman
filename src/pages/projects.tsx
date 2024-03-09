@@ -7,7 +7,6 @@ import { getPlaiceholder } from 'plaiceholder'
 
 import {
   Hero,
-  AnimateIn,
   getImageBuffer
 } from 'eliasfrigard-reusable-components/dist/app'
 
@@ -70,7 +69,7 @@ const About = ({
   bands: any[]
 }) => {
   return (
-    <Layout transparent={false}>
+    <Layout transparent={false} pageTitle={pageTitle}>
       <Container className='flex flex-col justify-center items-center gap-8 lg:gap-16'>
         <Hero
           spaced={true}

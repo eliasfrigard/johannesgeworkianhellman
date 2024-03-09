@@ -31,7 +31,6 @@ const Music = ({
   pageTitle: string,
   videos: any[],
 }) => {
-  console.log('🚀 || videos:', videos)
   return (
     <Layout pageTitle={pageTitle} transparent={false}>
       <Container>

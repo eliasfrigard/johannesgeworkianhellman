@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Layout from "@/layouts/default"
+import TextLayout from '@/components/TextLayout'
 
 import { createClient } from 'contentful'
 import { getPlaiceholder } from 'plaiceholder'
@@ -9,8 +10,6 @@ import {
   AnimateIn,
   getImageBuffer
 } from 'eliasfrigard-reusable-components/dist/app'
-
-import TextLayout from '@/components/TextLayout'
 
 export async function getStaticProps() {
   const contentful = createClient({
@@ -66,7 +65,7 @@ const About = ({
   biography: string
 }) => {
   return (
-    <Layout>
+    <Layout transparent={false} pageTitle={pageTitle}>
       <Hero
         spaced={false}
         Image={Image}

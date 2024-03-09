@@ -1,30 +1,20 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-import Head from 'next/head'
-
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default function Layout({
   children,
   pageTitle,
-  pageDescription,
-  imageUrl,
-  pageUrl,
   footer = true,
   transparent = true,
   titleHidden = false,
-  headerFadeIn = false,
 }: {
   children: React.ReactNode
   pageTitle: string
-  pageDescription: string
-  imageUrl: string
-  pageUrl: string
   footer?: boolean
   transparent?: boolean
-  headerFadeIn?: boolean
   titleHidden?: boolean
 }) {
   const router = useRouter()
@@ -49,10 +39,6 @@ export default function Layout({
   const author = 'Elias Frigård'
   const pageName = 'Johannes Geworkian Hellman'
 
-  const title = `${pageTitle} | ${pageName}`
-  const baseUrl = 'https://www.johannesgeworkianhellman.com'
-  const faviconUrl = '/favicon.ico'
-
   const routes = [
     { href: '/', label: 'home' },
     { href: '/biography', label: 'biography' },
@@ -74,22 +60,8 @@ export default function Layout({
 
   return (
     <>
-      <Head>
-        <meta charSet='UTF-8' />
-        <title>{title}</title>
-        <link rel='icon' href={faviconUrl} />
-        <link rel='canonical' href={baseUrl + pageUrl} />
-        <meta name='description' content={pageDescription} />
-        <meta name='author' content={author} />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta name='robots' content='index,follow' />
-        <meta itemProp='image' content={imageUrl} />
-        <meta property='og:title' content={title} key='title' />
-        <meta property='og:description' content={pageDescription} />
-        <meta property='og:image' content={imageUrl} />
-        <meta property='og:url' content={baseUrl + pageUrl} />
-        <meta property='og:type' content='website' />
-      </Head>
+      <title>{pageTitle + ' | ' + 'Johannes Geworkian Hellman'}</title>
+
       <Header
         transparent={transparent}
         currentRoute={router.pathname}
