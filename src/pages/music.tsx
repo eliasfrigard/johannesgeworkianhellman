@@ -33,20 +33,16 @@ const Music = ({
 }) => {
   return (
     <Layout pageTitle={pageTitle} transparent={false}>
-      <Container>
-          <div className='container flex justify-center items-center flex-wrap'>
-            <div className={`container grid grid-flow-row ${videos.length > 1 && 'lg:grid-cols-2'} gap-6 px-2`}>
-              {videos.map((video, index) => (
-                <Video
-                  prominent={index === 0}
-                  key={video.fields.youTubeLink}
-                  title={video.fields.title}
-                  link={video.fields.youTubeLink}
-                />
-              ))}
-            </div>
-          </div>
-      </Container>
+        <div className={`w-full grid grid-flow-row ${videos.length > 1 && 'lg:grid-cols-2'} gap-6 mt-8 px-8`}>
+          {videos.map((video, index) => (
+            <Video
+              prominent={index === 0}
+              key={video.fields.youTubeLink}
+              title={video.fields.title}
+              link={video.fields.youTubeLink}
+            />
+          ))}
+        </div>
     </Layout>
   )
 }

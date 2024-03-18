@@ -71,9 +71,8 @@ const About = ({
 }) => {
   return (
     <Layout transparent={false} pageTitle={pageTitle}>
-      <Container className='flex flex-col justify-center items-center gap-8 lg:gap-16'>
         <Hero
-          spaced={true}
+          spaced={false}
           Image={Image}
           desktopImg={hero}
           mobileImg={mobileHero}
@@ -83,6 +82,7 @@ const About = ({
         >
           <TextLayout text={text} className='text-white prose-headings:text-white z-10' />
         </Hero>
+      <Container className='flex flex-col justify-center items-center gap-8 lg:gap-16'>
 
         {
           bands.map((band, index) => {
