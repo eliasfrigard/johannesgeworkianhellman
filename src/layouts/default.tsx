@@ -44,6 +44,7 @@ export default function Layout({
     { href: '/biography', label: 'biography' },
     { href: '/projects', label: 'projects' },
     { href: '/music', label: 'music' },
+    { href: '/gallery', label: 'gallery' },
     { href: '/calendar', label: 'calendar' },
     { href: '/contact', label: 'contact' },
   ]
