@@ -47,11 +47,13 @@ export async function getStaticProps() {
     url: mobileHeroUrl,
   }
 
+  const quotes: any[] = page?.quotes as any[]
+
   return {
     props: {
       hero: heroImage,
       mobileHero: mobileHeroImage,
-      pageTitle: page.title,
+      quotes: quotes.map((quote: any) => quote.fields)
     },
   }
 }
@@ -60,10 +62,12 @@ export default function Home({
   hero,
   mobileHero,
   pageTitle,
+  quotes
 } : {
   hero: ContentfulImage,
   mobileHero: ContentfulImage,
   pageTitle: string
+  quotes: any[]
 }) {
   return (
     <Layout
@@ -78,6 +82,21 @@ export default function Home({
         overlay={false}
         imagePosition='top'
       />
+
+      <div className='bg-primary-700 flex justify-center items-center'>
+        <div className='container grid py-16 grid-cols-3 gap-8'>
+          {
+            quotes.map((quote, index) => {
+              return (
+                <div key={index} className='mx-auto'>
+                  <blockquote className='border-l-4 border-opacity-10 rounded pl-4 text-3xl font-bold text-white leading-tight'>{quote.quote}</blockquote>
+                  <p className='ml-5 mt-4 text-lg text-white italic'>- {quote.author}</p>
+                </div>
+              )
+            })
+          }
+        </div>
+      </div>
     </Layout>
   )
 }

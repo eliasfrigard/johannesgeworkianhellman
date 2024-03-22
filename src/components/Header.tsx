@@ -111,46 +111,48 @@ const Header = ({
               <p className=' font-normal text-[12px]'>Musician / Artist / Hurdy-Gurdy</p>
             </Link>
           </div>
-          <div id='center' className='flex gap-1 xl:gap-6 font-medium justify-center tracking-[2px]'>
-            {routes.map((route) => (
-              <Link
-                key={route.href}
-                href={route.href}
-                className={`${activeLinkStyling(route.href)} desktopNavLink ${uppercaseLinks && 'uppercase'}`}
-              >
-                {route.label}
-              </Link>
+          <div id='center' className='flex justify-center items-center tracking-widest'>
+            {routes.map((route, index) => (
+              <>
+                <Link
+                  key={route.href}
+                  href={route.href}
+                  className={`${activeLinkStyling(route.href)} desktopNavLink text-sm`}
+                  >
+                  {route.label}
+                </Link>
+              </>
             ))}
           </div>
           <div id='right' className='flex gap-4 xl:gap-5 justify-end items-center'>
             {socialMedia?.phone && (
               <a href={`tel:${socialMedia.phone}`}>
-                <BsTelephone className='soMeIcon text-xl antialiased' />
+                <BsTelephone className='soMeIcon text-lg antialiased' />
               </a>
             )}
             {socialMedia?.email && (
               <a href={`mailto:${socialMedia?.email}?subject=${pageName} Website`}>
-                <AiOutlineMail className='soMeIcon text-[1.5rem] antialiased' />
+                <AiOutlineMail className='soMeIcon text-[1.4rem] antialiased' />
               </a>
             )}
             {socialMedia?.facebook && (
               <a href={socialMedia?.facebook} target='_blank' rel='noopener noreferrer'>
-                <BsFacebook className='soMeIcon text-xl' />
+                <BsFacebook className='soMeIcon text-lg' />
               </a>
             )}
             {socialMedia?.instagram && (
               <a href={socialMedia?.instagram} target='_blank' rel='noopener noreferrer'>
-                <BsInstagram className='soMeIcon text-xl' />
+                <BsInstagram className='soMeIcon text-lg' />
               </a>
             )}
             {socialMedia?.spotify && (
               <a href={socialMedia?.spotify} target='_blank' rel='noopener noreferrer'>
-                <BsSpotify className='soMeIcon text-xl' />
+                <BsSpotify className='soMeIcon text-lg' />
               </a>
             )}
             {socialMedia?.youTube && (
               <a href={socialMedia?.youTube} target='_blank' rel='noopener noreferrer'>
-                <BsYoutube className='soMeIcon text-[1.5rem] translate-y-[1px]' />
+                <BsYoutube className='soMeIcon text-[1.4rem] translate-y-[1px]' />
               </a>
             )}
           </div>

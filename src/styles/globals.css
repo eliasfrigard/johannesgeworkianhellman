@@ -80,6 +80,10 @@ a {
     cursor: pointer;
   }
 
+  .quoted-string::before {
+    content: '"';
+  }
+
   .burgerLine {
     width: 36px;
     height: 3px;
