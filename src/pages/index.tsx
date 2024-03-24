@@ -10,6 +10,10 @@ import {
   getImageBuffer
 } from 'eliasfrigard-reusable-components/dist/app'
 
+import AnimateIn from '@/components/AnimateIn'
+import Video from '@/components/Video'
+
+import { BiSolidQuoteAltLeft } from "react-icons/bi";
 
 export async function getStaticProps() {
   const contentful = createClient({
@@ -72,7 +76,7 @@ export default function Home({
   return (
     <Layout
       titleHidden
-      pageTitle={pageTitle}
+      pageTitle="Home"
     >
       <Hero
         spaced={false}
@@ -83,15 +87,27 @@ export default function Home({
         imagePosition='top'
       />
 
-      <div className='bg-primary-700 flex justify-center items-center'>
-        <div className='container grid py-16 grid-cols-3 gap-8'>
+      <div className='bg-primary-700 flex flex-col gap-16 justify-center items-center py-16 px-4'>
+        <AnimateIn className='container aspect-video'>
+          <Video 
+            title='Video Title'
+            link='https://www.youtube.com/watch?v=fjIOXaj85HI'
+            prominent
+            className='w-full'
+            />
+        </AnimateIn>
+
+        <div className='container grid grid-cols-1 md:grid-cols-3 gap-8'>
           {
             quotes.map((quote, index) => {
               return (
-                <div key={index} className='mx-auto'>
-                  <blockquote className='border-l-4 border-opacity-10 rounded pl-4 text-3xl font-bold text-white leading-tight'>{quote.quote}</blockquote>
-                  <p className='ml-5 mt-4 text-lg text-white italic'>- {quote.author}</p>
-                </div>
+                <AnimateIn delay={index * 350} key={index} className='flex'>
+                  <div className={`flex flex-col gap-3 ${index !== quotes.length -1 ? 'md:border-r border-primary-300 border-opacity-20' : ''} text-center md:text-left`}>
+                    <BiSolidQuoteAltLeft className='opacity-90 text-3xl text-primary-300' />
+                    <blockquote className='text-xl md:text-3xl font-bold text-primary-300 leading-normal md:leading-snug'>{quote.quote}</blockquote>
+                    <p className='text-lg text-white italic opacity-80'>- {quote.author}</p>
+                  </div>
+                </AnimateIn>
               )
             })
           }
