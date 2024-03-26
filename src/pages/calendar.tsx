@@ -1,16 +1,6 @@
-import Image from 'next/image'
 import Layout from "@/layouts/default"
-
 import { createClient } from 'contentful'
-import { getPlaiceholder } from 'plaiceholder'
-
-import {
-  Hero,
-  AnimateIn,
-  getImageBuffer
-} from 'eliasfrigard-reusable-components/dist/app'
-
-import TextLayout from '@/components/TextLayout'
+import Concert from "@/components/Concert"
 
 export async function getStaticProps() {
   const contentful = createClient({
@@ -24,61 +14,39 @@ export async function getStaticProps() {
 
   const page = pageRes.items[0].fields
 
-  const hero: any = page?.hero
-  const mobileHero: any = page?.mobileHero
-
-  const heroUrl = 'https:' + hero?.fields.file.url
-  const mobileHeroUrl = mobileHero ? 'https:' + mobileHero?.fields?.file?.url : heroUrl
-
-  const heroBuffer = await getImageBuffer(heroUrl)
-  const mobileHeroBuffer = await getImageBuffer(mobileHeroUrl)
-
-  const { base64: heroBlur } = await getPlaiceholder(heroBuffer)
-  const { base64: mobileHeroBlur } = await getPlaiceholder(mobileHeroBuffer)
-
   return {
     props: {
-      hero: {
-        altText: hero?.fields?.title,
-        blur: heroBlur,
-        url: heroUrl
-      },
-      mobileHero: {
-        altText: mobileHero ? mobileHero?.fields?.title : hero?.fields?.title,
-        blur: mobileHeroBlur,
-        url: mobileHeroUrl
-      },
       pageTitle: page.title,
-      biography: page.biography,
     },
   }
 }
 
 const About = ({
-  hero,
-  mobileHero,
   pageTitle,
-  biography,
 } : {
-  hero: { altText: string, url: string },
-  mobileHero: { altText: string, url: string },
   pageTitle: string,
-  biography: string
 }) => {
   return (
-    <Layout pageTitle={pageTitle}>
-      <Hero
-        spaced={false}
-        Image={Image}
-        desktopImg={hero}
-        mobileImg={mobileHero}
-        overlay={false}
-        imagePosition='top'
-      />
-
-      <AnimateIn threshold={0} className='text-center md:text-justify leading-[2rem] tracking-wide font-sans z-10 px-3 md:px-10 pt-2 lg:pt-0'>
-        <TextLayout text={biography} className='text-primary-600' />
-      </AnimateIn>
+    <Layout transparent={false} pageTitle={pageTitle}>
+      <div className="container mx-auto my-16 flex flex-col justify-center items-center gap-6">
+        <Concert 
+          description="Symbio @	Moriska Paviljongen"
+          location="Malmö, Sweden"
+          facebook="https://www.facebook.com/"
+          website="https://www.google.com/"
+          tickets="https://www.google.com/"
+        />
+        <Concert 
+          description="Symbio @	Nygatan 6 - Musik i Syd"
+          location="Växjö, Sweden"
+          website="https://www.google.com/"
+          tickets="https://www.google.com/"
+        />
+        <Concert 
+          description="Maija Kauhanen & Johannes Geworkian Hellman @	Stallet - Världens Musik"
+          location="Stockholm, Sweden"
+        />
+      </div>
     </Layout>
   )
 }

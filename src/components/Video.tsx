@@ -19,7 +19,7 @@ const Video = ({
         title={title}
         src={`https://www.youtube.com/embed/${getYoutubeID(link)}`}
         {...(prominent ? { itemProp: 'video' } : null)}
-        className='video rounded shadow'
+        className='video rounded-lg shadow'
         allowFullScreen
         loading='lazy'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
