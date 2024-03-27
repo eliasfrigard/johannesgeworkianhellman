@@ -111,7 +111,7 @@ a {
   .soMeIcon:hover {
     color: theme('colors.accent.500');
     cursor: pointer;
-    transform: scale(1.05)
+    transform: scale(1.15)
   }
   .soMeIcon:active {
     transform: scale(0.95)
