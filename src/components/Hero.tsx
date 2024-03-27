@@ -35,8 +35,9 @@ const Hero = ({
         {
           desktopImg.image && (
             <Image
+              unoptimized={true}
               alt={desktopImg.altText}
-              src={desktopImg.image + '?w=800'}
+              src={desktopImg.image + '?w=1920'}
               fill
               sizes="(min-width: 768px) 80vw, 100vw"
               className='hidden md:block object-cover rounded shadow'
@@ -50,7 +51,7 @@ const Hero = ({
           mobileImg.image && (
             <Image
               alt={mobileImg.altText}
-              src={mobileImg.image + '?w=600'}
+              src={mobileImg.image + '?w=800'}
               fill
               sizes="(min-width: 768px) 80vw, 100vw"
               className='md:hidden object-cover object-bottom rounded shadow'
@@ -77,7 +78,7 @@ const Hero = ({
             // @ts-ignore
             ref={parallax.ref}
             alt={desktopImg.altText}
-            src={desktopImg.image + '?w=800'}
+            src={desktopImg.image + '?w=3440'}
             fill
             sizes="(min-width: 768px) 80vw, 100vw"
             className={`hidden md:block object-cover`}
@@ -93,7 +94,7 @@ const Hero = ({
               // @ts-ignore
               ref={mobileParallax.ref}
               alt={mobileImg.altText}
-              src={mobileImg.image + '?w=600'}
+              src={mobileImg.image + '?w=800'}
               fill
               sizes="(min-width: 768px) 80vw, 100vw"
               className='md:hidden object-cover object-bottom'

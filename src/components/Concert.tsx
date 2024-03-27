@@ -22,7 +22,7 @@ const Concert = ({
   }
  }) => {
   return (
-    <div className="w-full flex lg:grid lg:grid-cols-[1fr_2fr_2fr_1fr] justify-between text-primary-300 text-center leading-relaxed bg-primary-600 bg-opacity-90 py-3 rounded">
+    <div className="w-full flex lg:grid lg:grid-cols-[1fr_2fr_2fr_1fr] justify-between text-primary-300 text-center leading-relaxed bg-primary-600 bg-opacity-90 py-3 rounded shadow">
       <div className="flex flex-col justify-center items-center px-6">
         <p className="text-3xl font-bold">04</p>
         <p className="text-lg font-bold -mt-1">Sept</p>

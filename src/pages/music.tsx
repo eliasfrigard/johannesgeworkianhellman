@@ -1,6 +1,7 @@
 import Layout from '@/layouts/default'
 import Video from '@/components/Video'
 import Album from '@/components/Album'
+import AnimateIn from '@/components/AnimateIn'
 
 import { createClient } from 'contentful'
 
@@ -20,6 +21,7 @@ export async function getStaticProps() {
     props: {
       pageTitle: page.name,
       videos: page.videos,
+      albums: page.albums,
     },
   }
 }
@@ -27,15 +29,17 @@ export async function getStaticProps() {
 const Music = ({
   pageTitle,
   videos,
+  albums
 } : {
   pageTitle: string,
   videos: any[],
+  albums: any[]
 }) => {
   const firstVideo = videos[0]
 
   return (
     <Layout pageTitle={pageTitle} transparent={false}>
-      <div className='w-screen flex justify-center items-center py-16 bg-primary-700'>
+      <div className='w-full flex justify-center items-center pt-[calc(85px+2rem)] pb-16 bg-primary-700 -mt-[85px]'>
         <div className='container flex flex-col justify-center items-center gap-6'>
           <div className='w-full aspect-video'>
             <Video
@@ -50,26 +54,34 @@ const Music = ({
             {videos.map((video, index) => {
             if (index === 0) return null
             return (
-              <Video
-              prominent={false}
-              key={video.fields.youTubeLink}
-              title={video.fields.title}
-              link={video.fields.youTubeLink}
-              />
-            )
+                <Video
+                prominent={false}
+                key={video.fields.youTubeLink}
+                title={video.fields.title}
+                link={video.fields.youTubeLink}
+                />
+              )
             })}
           </div>
         </div>
       </div>
 
       <div>
-        <div className='w-full flex justify-center items-center'>
-          <div className='container py-16'>
-            <Album
-              title='Album Title'
-              cover='/veera-grant.jpg'
-              spotify='https://open.spotify.com/album/6qa1OBh5ZZSBMjpikd6pyP?si=-Px_xgFzR8iC1GEKhGLJVg'
-            />
+        <div className='w-full flex justify-center items-center pt-16 pb-8'>
+          <div className='container flex flex-col gap-12'>
+            {
+              albums.map((album, index) => {
+                return (
+                  <Album
+                    key={index}
+                    flipped={index % 2 === 0}
+                    title={album.fields.title}
+                    cover={'https:' + album.fields.albumCover.fields.file.url}
+                    spotify={album.fields.spotifyUrl}
+                  />
+                )
+              })
+            }
           </div>
         </div>
       </div>

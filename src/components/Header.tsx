@@ -85,7 +85,7 @@ const Header = ({
           items-center 
           z-50 
           ${!transparent || scrolled ? 'backdrop-blur bg-primary-700' : ''}
-          bg-opacity-70 
+          bg-opacity-80 
           duration-500
         `}
       >

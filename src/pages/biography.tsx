@@ -65,7 +65,7 @@ const About = ({
   biography: string
 }) => {
   return (
-    <Layout transparent={false} pageTitle={pageTitle}>
+    <Layout transparent={true} pageTitle={pageTitle}>
       <Hero
         spaced={false}
         Image={Image}

@@ -6,17 +6,19 @@ const Album = ({
   title, 
   text, 
   cover, 
-  spotify 
+  spotify,
+  flipped = false
 } : {
   title: string
   text?:any
   cover: string
   spotify: string
+  flipped?: boolean
 }) => {
   return (
     <AnimateIn className='w-full flex flex-col centerContent'>
       <div className={`container grid grid-flow-row mx-12 gap-8 md:gap-6 ${spotify && 'lg:grid-cols-2'}`}>
-        <div className='overflow-hidden rounded-xl shadow-lg w-full md:h-full aspect-square relative'>
+        <div className={`${flipped && 'order-2'} overflow-hidden rounded-xl shadow-lg w-full md:h-full aspect-square relative`}>
           <Image
             alt={title}
             src={cover}
@@ -33,7 +35,7 @@ const Album = ({
         </div>
         {spotify && (
           <iframe
-            className='md:shadow-lg min-h-300px h-[450px] md:h-full md:aspect-square w-full'
+            className={`${flipped && 'order-1'} md:shadow-lg min-h-300px h-[450px] md:h-full md:aspect-square w-full`}
             src={`https://open.spotify.com/embed/album/${spotify.split('/').pop()}`}
             allowFullScreen
             allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
