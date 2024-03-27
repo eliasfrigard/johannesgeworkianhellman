@@ -35,7 +35,7 @@ const BandIcons = ({
     return (
       <div className={divClasses}>
         <div className="iconContainer rounded-full p-3 -mb-2">
-          <IconComponent className="icon duration-150" />
+          <IconComponent className="icon duration-150 " />
         </div>
 
         <p className="text-base font-medium tracking-wide text-center">{`${bandName} ${type}`}</p>
@@ -47,7 +47,7 @@ const BandIcons = ({
 
   return (
     <>
-      <div className="hidden md:flex justify-center items-center w-full gap-8 text-3xl -my-3">
+      <div className="hidden md:flex justify-center items-center w-full gap-8 text-2xl -my-3">
         {website && icon(SlHome, 'Website')}
         {spotify && icon(SlSocialSpotify, 'Spotify')}
         {facebook && icon(SlSocialFacebook, 'Facebook')}

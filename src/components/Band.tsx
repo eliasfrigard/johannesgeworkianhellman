@@ -35,7 +35,7 @@ const Band = ({
               />
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full flex justify-center items-center">
           {biography && (
             <div className='flex justify-center items-center max-w-2xl'>
               <TextLayout text={biography} className='text-primary-600 text-center lg:text-left' type='presentation' />
