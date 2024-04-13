@@ -17,8 +17,8 @@ const Album = ({
 }) => {
   return (
     <AnimateIn className='w-full flex flex-col centerContent'>
-      <div className={`container grid grid-flow-row mx-12 gap-8 md:gap-6 ${spotify && 'lg:grid-cols-2'}`}>
-        <div className={`${flipped && 'order-2'} overflow-hidden rounded-xl shadow-lg w-full md:h-full aspect-square relative`}>
+      <div className={`container grid grid-flow-row mx-12 gap-6 lg:gap-6 ${spotify && 'lg:grid-cols-2'}`}>
+        <div className={`${flipped && 'lg:order-2'} overflow-hidden rounded-xl shadow-lg w-full md:h-full aspect-square relative`}>
           <Image
             alt={title}
             src={cover}

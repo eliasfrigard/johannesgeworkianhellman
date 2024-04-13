@@ -39,8 +39,8 @@ const Music = ({
 
   return (
     <Layout pageTitle={pageTitle} transparent={false}>
-      <div className='w-full flex justify-center items-center pt-[calc(85px+2rem)] pb-16 bg-primary-700 -mt-[85px]'>
-        <div className='container flex flex-col justify-center items-center gap-6'>
+      <div className='w-full px-3 flex justify-center items-center pt-[calc(85px+0.5rem)] lg:pt-[calc(85px+2rem)] pb-8 lg:pb-16 bg-primary-700 -mt-[85px]'>
+        <div className='container flex flex-col justify-center items-center gap-3 lg:gap-6'>
           <div className='w-full aspect-video'>
             <Video
               prominent={true}
@@ -50,7 +50,7 @@ const Music = ({
               />
           </div>
 
-          <div className={`w-full grid grid-flow-row ${videos.length > 1 && 'lg:grid-cols-2'} gap-6`}>
+          <div className={`w-full grid grid-flow-row ${videos.length > 1 && 'lg:grid-cols-2'} gap-3 lg:gap-6`}>
             {videos.map((video, index) => {
             if (index === 0) return null
             return (
@@ -67,8 +67,8 @@ const Music = ({
       </div>
 
       <div>
-        <div className='w-full flex justify-center items-center pt-16 pb-8'>
-          <div className='container flex flex-col gap-12'>
+        <div className='w-full flex justify-center items-center pt-8 lg:pt-16 pb-3 lg:pb-8'>
+          <div className='container flex flex-col gap-6 lg:gap-12 px-3'>
             {
               albums.map((album, index) => {
                 return (
