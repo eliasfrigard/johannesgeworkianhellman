@@ -107,7 +107,7 @@ const Header = ({
         >
           <div id='left' className='text-center'>
             <Link className='flex flex-col gap-1 cursor-pointer text-sm font-bold tracking-widest uppercase' href='/'>
-              <p>{pageName}</p>
+              <p>Johannes Geworkian Hellman</p>
               <p className=' font-normal text-[12px]'>Musician / Artist / Hurdy-Gurdy</p>
             </Link>
           </div>

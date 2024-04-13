@@ -75,7 +75,6 @@ export default function Home({
 }) {
   return (
     <Layout
-      titleHidden
       pageTitle="Home"
     >
       <Hero
@@ -87,7 +86,7 @@ export default function Home({
         imagePosition='top'
       />
 
-      <div className='bg-primary-700 flex flex-col gap-16 justify-center items-center py-16 px-4'>
+      <div className='bg-primary-700 flex flex-col gap-8 lg:gap-16 justify-center items-center py-8 lg:py-16 px-4'>
         <AnimateIn className='container aspect-video'>
           <Video 
             title='Video Title'
@@ -97,15 +96,15 @@ export default function Home({
             />
         </AnimateIn>
 
-        <div className='container grid grid-cols-1 md:grid-cols-3 gap-8'>
+        <div className='container grid grid-cols-1 lg:grid-cols-3 gap-8'>
           {
             quotes.map((quote, index) => {
               return (
                 <AnimateIn delay={index * 350} key={index} className='flex'>
-                  <div className={`flex flex-col gap-3 ${index !== quotes.length -1 ? 'md:border-r border-primary-300 border-opacity-20' : ''} text-center md:text-left`}>
+                  <div className={`flex flex-col gap-3 ${index !== quotes.length -1 ? 'lg:border-r border-primary-300 border-opacity-20' : ''} text-center items-center lg:items-start lg:text-left px-3`}>
                     <BiSolidQuoteAltLeft className='text-accent-500 opacity-90 text-3xl' />
-                    <blockquote className='text-xl md:text-3xl font-bold text-primary-300 leading-normal md:leading-snug'>{quote.quote}</blockquote>
-                    <p className='text-lg text-white italic opacity-80'>- {quote.author}</p>
+                    <blockquote className='text-xl lg:text-3xl font-bold text-primary-300 leading-snug'>{quote.quote}</blockquote>
+                    <p className='text-white italic opacity-80'>- {quote.author}</p>
                   </div>
                 </AnimateIn>
               )
