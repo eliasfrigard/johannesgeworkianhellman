@@ -52,13 +52,13 @@ export default function Layout({
   ]
 
   const socialMedia = {
-    facebook: 'https://www.facebook.com/veerakuisma',
-    instagram: 'https://www.instagram.com/veerakuisma',
-    youtube: 'https://www.youtube.com/veerakuisma',
-    phone: '+358 40 123 4567',
-    email: 'abcd@ema.fi',
-    youTube: 'abcdema',
-    spotify: 'https://open.spotify.com/artist/veerakuisma',
+    facebook: 'https://www.facebook.com/GeworkianHellman',
+    instagram: 'https://www.instagram.com/johannesgeworkianhellman/',
+    youtube: 'https://www.youtube.com/johannesgeworkianhellman',
+    phone: '+46 40 123 4567',
+    email: 'johannesgeworkianhellman@gmail.com',
+    youTube: 'https://www.youtube.com/@JohannesGeworkianHellman',
+    spotify: 'https://open.spotify.com/artist/71MQq4xyZaNfE6yn8GwnEL?si=RBekXUJnTEeBxYnwbK5lig',
   }
 
   return (

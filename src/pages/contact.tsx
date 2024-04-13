@@ -18,7 +18,7 @@ export async function getStaticProps() {
   })
 
   const pageRes = await contentful.getEntries({
-    content_type: 'projectsPage',
+    content_type: 'contactPage',
   })
   
   const page = pageRes.items[0].fields
@@ -48,7 +48,7 @@ export async function getStaticProps() {
         url: mobileHeroUrl
       },
       pageTitle: page.title,
-      text: page.text,
+      text: page.contactInformation,
     },
   }
 }
@@ -75,7 +75,7 @@ const Contact = ({
           imagePosition='top'
           overlayClasses='bg-primary-700 bg-opacity-40 backdrop-blur'
         >
-          <TextLayout text={text} className='text-white prose-headings:text-white z-10' />
+          <TextLayout text={text} className='text-white prose-headings:text-white z-10 max-w-5xl' />
         </Hero>
     </Layout>
   )
