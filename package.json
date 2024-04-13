@@ -12,7 +12,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "contentful": "^10.6.24",
-    "eliasfrigard-reusable-components": "0.1.90",
+    "eliasfrigard-reusable-components": "0.1.92",
     "next": "14.1.2",
     "plaiceholder": "^3.0.0",
     "react": "^18",
