@@ -87,7 +87,7 @@ const IconHandler = ({
   if (noIcons) return ''
 
   return (
-    <div className={`flex text-2xl justify-center items-center gap-5 z-10 ${className}`}>
+    <div className={`flex text-2xl justify-center items-center gap-4 z-10 ${className}`}>
       {
         address && (
           <LinkIcon href={addressLink} tooltip='Google Maps'>

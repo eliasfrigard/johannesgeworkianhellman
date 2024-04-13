@@ -81,7 +81,7 @@ const Calendar = ({
   }
 }) => {
   return (
-    <Layout transparent={true} pageTitle="Concerts">
+    <Layout transparent={true} pageTitle="Concerts" className="px-3">
       <Hero
         spaced={false}
         Image={Image}
