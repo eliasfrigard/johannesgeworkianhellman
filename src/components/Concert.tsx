@@ -49,7 +49,7 @@ const Concert = ({
         </div>
       </AnimateIn>
 
-      <AnimateIn animationType='slide' className="w-full border-l-8 border-accent-500 flex flex-col gap-4 justify-between text-primary-300 text-center leading-relaxed bg-primary-700 bg-opacity-90 rounded shadow px-6 py-3">
+      <AnimateIn animationType='slide' className="lg:hidden w-full border-l-8 border-accent-500 flex flex-col gap-4 justify-between text-primary-300 text-center leading-relaxed bg-primary-700 bg-opacity-90 rounded shadow px-6 py-3">
         <div className='flex justify-between items-center gap-3'>
           <div className="flex flex-col justify-center items-center">
             <p className="text-3xl font-bold">04</p>

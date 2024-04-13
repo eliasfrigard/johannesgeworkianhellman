@@ -92,8 +92,8 @@ const Calendar = ({
       />
 
       {concerts.upcoming.length > 0 && (
-        <AnimateIn className="px-3 container my-16 mx-auto flex flex-col justify-center items-center gap-12">
-          <h2 className="text-center text-5xl px-8 font-bold uppercase tracking-wider border-b-4 border-accent-500 border-opacity-80 rounded pb-8">Upcoming Shows</h2>
+        <AnimateIn className="px-3 container my-8 lg:my-16 mx-auto flex flex-col justify-center items-center gap-8 lg:gap-12">
+          <h2 className="text-center text-4xl lg:text-5xl mx-8 font-bold uppercase tracking-wider border-b-2 border-accent-500 border-opacity-80 pb-6 lg:pb-8">Upcoming Shows</h2>
           <div className="w-full flex flex-col justify-center items-center gap-6">
             {concerts.upcoming.map((concert) => (
               <Concert 
@@ -111,8 +111,8 @@ const Calendar = ({
         </AnimateIn>
       )}
       {concerts.previous.length > 0 && (
-        <AnimateIn className="px-3 container mb-3 mx-auto flex flex-col justify-center items-center gap-12">
-          <h2 className="text-center text-5xl px-8 font-bold uppercase tracking-wider border-b-4 border-accent-500 border-opacity-80 rounded pb-8">Past Shows</h2>
+        <AnimateIn className="px-3 container mb-4 lg:my-16 mx-auto flex flex-col justify-center items-center gap-8 lg:gap-12">
+          <h2 className="text-center text-4xl lg:text-5xl mx-8 font-bold uppercase tracking-wider border-b-2 border-accent-500 border-opacity-80 pb-6 lg:pb-8">Past Shows</h2>
           <div className="w-full flex flex-col justify-center items-center gap-6">
             {concerts.previous.map((concert) => (
               <Concert 
