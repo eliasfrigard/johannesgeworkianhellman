@@ -31,27 +31,34 @@ const BandIcons = ({
     )
   }
 
-  const icon = (IconComponent: any, type: string) => {
+  const icon = (link: string, IconComponent: any, type: string) => {
     return (
-      <div className={divClasses}>
-        <div className="iconContainer rounded-full p-3 -mb-2">
-          <IconComponent className="icon duration-150 " />
+      <a
+        href={link}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='duration-200'
+      >
+        <div className={divClasses}>
+          <div className="iconContainer rounded-full p-3 -mb-2">
+            <IconComponent className="icon duration-150 " />
+          </div>
+
+          <p className="text-base font-medium tracking-wide text-center">{`${bandName} ${type}`}</p>
+
+          {underlines()}
         </div>
-
-        <p className="text-base font-medium tracking-wide text-center">{`${bandName} ${type}`}</p>
-
-        {underlines()}
-      </div>
+      </a>
     )
   }
 
   return (
     <>
       <div className="hidden md:flex justify-center items-center w-full gap-8 text-2xl -my-3">
-        {website && icon(SlHome, 'Website')}
-        {spotify && icon(SlSocialSpotify, 'Spotify')}
-        {facebook && icon(SlSocialFacebook, 'Facebook')}
-        {youTube && icon(SlSocialYoutube, 'YouTube')}
+        {website && icon(website, SlHome, 'Website')}
+        {spotify && icon(spotify, SlSocialSpotify, 'Spotify')}
+        {facebook && icon(facebook, SlSocialFacebook, 'Facebook')}
+        {youTube && icon(youTube, SlSocialYoutube, 'YouTube')}
       </div>
       <div className="flex md:hidden justify-center items-center w-full gap-6 text-2xl">
         <SlHome className="icon duration-150" />

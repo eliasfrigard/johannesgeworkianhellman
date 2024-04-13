@@ -75,7 +75,7 @@ const About = ({
         imagePosition='top'
       />
 
-      <AnimateIn threshold={0} className='text-center md:text-justify leading-[2rem] tracking-wide font-sans z-10 px-3 md:px-10 pt-2 lg:pt-0'>
+      <AnimateIn threshold={0} className='text-center md:text-justify leading-[2rem] tracking-wide font-sans z-10 px-3 md:px-10 pt-2 lg:pt-0 mb-8 mt-8 lg:mt-16'>
         <TextLayout text={biography} className='text-primary-600' />
       </AnimateIn>
     </Layout>

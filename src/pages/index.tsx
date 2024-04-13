@@ -103,7 +103,7 @@ export default function Home({
               return (
                 <AnimateIn delay={index * 350} key={index} className='flex'>
                   <div className={`flex flex-col gap-3 ${index !== quotes.length -1 ? 'md:border-r border-primary-300 border-opacity-20' : ''} text-center md:text-left`}>
-                    <BiSolidQuoteAltLeft className='text-accent-500 opacity-90 text-3xl text-primary-300' />
+                    <BiSolidQuoteAltLeft className='text-accent-500 opacity-90 text-3xl' />
                     <blockquote className='text-xl md:text-3xl font-bold text-primary-300 leading-normal md:leading-snug'>{quote.quote}</blockquote>
                     <p className='text-lg text-white italic opacity-80'>- {quote.author}</p>
                   </div>

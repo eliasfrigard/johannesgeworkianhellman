@@ -113,9 +113,9 @@ const Hero = ({
           </AnimateIn>
         )}
 
-        <div className='z-10 mt-85 centerContent px-4'>
+        <AnimateIn className='z-10 mt-85 centerContent px-4'>
           {children}
-        </div>
+        </AnimateIn>
       </div>
     </AnimateIn>
   )

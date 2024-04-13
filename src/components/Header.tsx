@@ -92,8 +92,8 @@ const Header = ({
         <div
           className={`
           hidden
-          lg:gap-16
-          lg:flex
+          xl:gap-16
+          xl:flex
           justify-between
           items-center
           h-[85px]
@@ -113,15 +113,13 @@ const Header = ({
           </div>
           <div id='center' className='flex justify-center items-center tracking-widest'>
             {routes.map((route, index) => (
-              <>
-                <Link
-                  key={route.href}
-                  href={route.href}
-                  className={`${activeLinkStyling(route.href)} desktopNavLink text-sm`}
-                  >
-                  {route.label}
-                </Link>
-              </>
+              <Link
+                key={route.href}
+                href={route.href}
+                className={`${activeLinkStyling(route.href)} desktopNavLink text-sm`}
+                >
+                {route.label}
+              </Link>
             ))}
           </div>
           <div id='right' className='flex gap-4 xl:gap-5 justify-end items-center'>
@@ -161,28 +159,27 @@ const Header = ({
 
       {/* MOBILE */}
 
-      <div className={`w-screen flex justify-start fixed items-center z-50 bg-primary-950`}>
+      <div className={`w-screen flex fixed items-center z-50 bg-primary-950`}>
         <div
           className={`
-          lg:hidden
+          w-full
+          xl:hidden
           flex
           justify-between
           items-center
           h-[85px]
-          w-full
           tracking-wide
           ${!transparent || scrolled ? 'backdrop-blur bg-primary-700' : ''}
           text-primary-300
-          container
           px-8
           duration-300
           ${font}
         `}
         >
           <div>
-            <Link className={`${titleHidden ? 'hidden' : 'flex'} flex-col gap-1 cursor-pointer text-[10px] font-bold tracking-widest uppercase`} href='/'>
+            <Link className={`${titleHidden ? 'hidden' : 'flex'} flex-col text-center gap-1 cursor-pointer text-[10px] md:text-[14px] font-bold tracking-widest uppercase`} href='/'>
               <p>{pageName}</p>
-              <p className=' font-normal text-[9px]'>Musician / Artist / Hurdy-Gurdy</p>
+              <p className=' font-normal text-[9px] md:text-[13px]'>Musician / Artist / Hurdy-Gurdy</p>
             </Link>
           </div>
           <div>
@@ -192,7 +189,7 @@ const Header = ({
       </div>
 
       <div
-        className={`lg:hidden  px-8 fixed flex flex-col justify-evenly items-center pt-[85px] h-screen w-screen bg-primary-700 z-40 duration-300 transform ${!mobileNavOpen && '-translate-y-[100vh]'
+        className={`xl:hidden  px-8 fixed flex flex-col justify-evenly items-center pt-[85px] h-screen w-screen bg-primary-700 z-40 duration-300 transform ${!mobileNavOpen && '-translate-y-[100vh]'
           }`}
       >
         <div className='container flex flex-col justify-center items-center gap-6 text-primary-100 font-khorla'>

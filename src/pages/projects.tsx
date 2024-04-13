@@ -70,7 +70,7 @@ const About = ({
   bands: any[]
 }) => {
   return (
-    <Layout transparent={false} pageTitle={pageTitle}>
+    <Layout transparent={true} pageTitle={pageTitle}>
         <Hero
           spaced={false}
           Image={Image}
@@ -82,8 +82,7 @@ const About = ({
         >
           <TextLayout text={text} className='text-white prose-headings:text-white z-10' />
         </Hero>
-      <Container className='flex flex-col justify-center items-center gap-8 lg:gap-16'>
-
+      <Container className='flex flex-col justify-center items-center gap-8 lg:gap-16 mb-8 mt-8 lg:mt-16'>
         {
           bands.map((band, index) => {
             return (
@@ -99,7 +98,12 @@ const About = ({
                   youTube={band.fields.youTube}
                   facebook={band.fields.facebook}
                 />
-                <div className='h-[1px] w-3/4 bg-primary-300 rounded-full'></div>
+                {
+                  index < bands.length - 1 && (
+                    <div className='h-[1px] w-3/4 bg-primary-500 rounded-full opacity-20'></div>
+                  )
+                
+                }
               </>
             )
           })
