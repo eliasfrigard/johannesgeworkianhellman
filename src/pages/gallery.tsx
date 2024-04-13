@@ -48,7 +48,7 @@ const About = ({
 }) => {
   return (
     <Layout transparent={false} pageTitle='gallery'>
-      <div className='w-screen grid grid-cols-2 md:grid-cols-3 gap-1 lg:gap-6 mt-3 lg:mt-8 mb-3 lg:mb-8 px-3'>
+      <div className='w-screen grid grid-cols-2 md:grid-cols-3 gap-1 lg:gap-6 mt-3 lg:mt-8 mb-3 lg:mb-8 px-3 lg:px-8'>
         {
           images.map((image, index) => (
             <ImageLayout handleOnClick={() => handleOpenModal(index)} key={image.url} index={index} image={image} />
