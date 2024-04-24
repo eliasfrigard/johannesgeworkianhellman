@@ -116,7 +116,7 @@ const Header = ({
               <Link
                 key={route.href}
                 href={route.href}
-                className={`${activeLinkStyling(route.href)} desktopNavLink text-sm`}
+                className={`${activeLinkStyling(route.href)} desktopNavLink capitalize text-sm`}
                 >
                 {route.label}
               </Link>
