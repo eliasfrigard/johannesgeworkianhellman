@@ -192,7 +192,7 @@ const Header = ({
         className={`xl:hidden  px-8 fixed flex flex-col justify-evenly items-center pt-[85px] h-screen w-screen bg-primary-700 z-40 duration-300 transform ${!mobileNavOpen && '-translate-y-[100vh]'
           }`}
       >
-        <div className='container flex flex-col justify-center items-center gap-6 text-primary-100 font-khorla'>
+        <div className='container capitalize flex flex-col justify-center items-center gap-6 text-primary-100 font-khorla'>
           {routes.map((route) => (
             <Link
               key={route.href}
