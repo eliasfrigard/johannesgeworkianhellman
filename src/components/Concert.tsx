@@ -1,6 +1,7 @@
 import IconHandler from './IconHandler'
 import AnimateIn from './AnimateIn'
 import { BsPinMapFill } from "react-icons/bs"
+import Moment from 'react-moment'
 
 const Concert = ({ 
   date,
@@ -27,9 +28,21 @@ const Concert = ({
     <>
       <AnimateIn animationType='slide' className="w-full border-l-8 border-accent-500 lg:grid lg:grid-cols-[1fr_2fr_2fr_1fr] justify-between text-primary-300 text-center leading-relaxed bg-primary-700 bg-opacity-90 py-3 rounded shadow hidden">
         <div className="flex flex-col justify-center items-center px-6">
-          <p className="text-3xl font-bold">04</p>
-          <p className="text-lg font-bold -mt-1">Sept</p>
-          <p className="font-bold -mt-1">2024</p>
+          <p className="text-3xl font-bold">
+            <Moment format='DD'>
+              {date}
+            </Moment>
+          </p>
+          <p className="text-lg font-bold -mt-1">
+            <Moment format='MMM'>
+              {date}
+            </Moment>
+          </p>
+          <p className="font-bold -mt-1">
+            <Moment format='YYYY'>
+              {date}
+            </Moment>
+          </p>
         </div>
         <div className="flex flex-col justify-center items-center px-6">
           <p className="font-medium">{description}</p>
