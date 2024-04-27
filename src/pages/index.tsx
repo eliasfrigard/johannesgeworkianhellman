@@ -57,6 +57,7 @@ export async function getStaticProps() {
     props: {
       hero: heroImage,
       mobileHero: mobileHeroImage,
+      video: page?.video,
       quotes: quotes.map((quote: any) => quote.fields)
     },
   }
@@ -66,12 +67,14 @@ export default function Home({
   hero,
   mobileHero,
   pageTitle,
-  quotes
+  quotes,
+  video
 } : {
   hero: ContentfulImage,
   mobileHero: ContentfulImage,
   pageTitle: string
   quotes: any[]
+  video: any
 }) {
   return (
     <Layout
@@ -89,8 +92,8 @@ export default function Home({
       <div className='bg-primary-700 flex flex-col gap-8 lg:gap-16 justify-center items-center py-8 lg:py-16 px-4'>
         <AnimateIn className='container aspect-video'>
           <Video 
-            title='Video Title'
-            link='https://www.youtube.com/watch?v=fjIOXaj85HI'
+            title={video.fields.title}
+            link={video.fields.youTubeLink}
             prominent
             className='w-full'
             />
