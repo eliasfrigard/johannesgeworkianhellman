@@ -66,17 +66,20 @@ const About = ({
 }) => {
   return (
     <Layout transparent={true} pageTitle={pageTitle}>
-      <Hero
-        spaced={false}
-        Image={Image}
-        desktopImg={hero}
-        mobileImg={mobileHero}
-        overlay={false}
-        imagePosition='top'
-      />
+      <div className="fixed w-full h-full -z-10">
+        <Hero
+          spaced={false}
+          Image={Image}
+          desktopImg={hero}
+          mobileImg={mobileHero}
+          overlay={false}
+          imagePosition='top'
+          parallaxSpeed={0}
+        />
+      </div>
 
-      <AnimateIn threshold={0} className='text-center md:text-justify leading-[2rem] tracking-wide font-sans z-10 px-3 md:px-10 pt-2 lg:pt-0 mb-4 lg:mb-8 mt-8 lg:mt-16'>
-        <TextLayout text={biography} className='text-primary-600' />
+      <AnimateIn threshold={0} className='text-center md:text-justify leading-[2rem] tracking-wide font-sans z-10 px-3 md:px-10 pt-2 lg:pt-0 mb-4 lg:mb-8 mt-8 lg:mt-8'>
+        <TextLayout text={biography} className='text-primary-700 font-medium' />
       </AnimateIn>
     </Layout>
   )

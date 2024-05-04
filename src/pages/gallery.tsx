@@ -13,26 +13,31 @@ export async function getStaticProps() {
     accessToken: process.env.ACCESS_TOKEN || '',
   })
 
-  const imageRes = await contentful.getAssets()
+  const pageRes = await contentful.getEntries({
+    content_type: 'photoGallery',
+  })
 
-  const images = []
-
-  for (const image of imageRes.items) {
-    const src = 'https:' + image?.fields?.file?.url
-
-    const buffer = await fetch(src).then(async (res) =>
-      Buffer.from(await res.arrayBuffer())
-    )
-
-    const { base64 } = await getPlaiceholder(buffer)
-
-    images.push({
-      url: src,
-      blur: base64
-    })
+  const images: ContentfulImage[] = []
+  
+  for (const gallery of pageRes.items) {
+    if (!gallery?.fields?.photos) continue
+    
+    const images: any[] = gallery?.fields?.photos as any[]
+    
+    for (const image of images) {
+      const src = 'https:' + image?.fields?.file?.url
+      const buffer = await fetch(src).then(async (res) => Buffer.from(await res.arrayBuffer()))
+      const { base64 } = await getPlaiceholder(buffer)
+    
+      images.push({
+        url: src,
+        blur: base64,
+        altText: image?.fields?.title
+      })
+    }
   }
 
-  return {
+return {
     props: {
       images
     }
