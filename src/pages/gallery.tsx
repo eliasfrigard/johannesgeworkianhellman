@@ -17,7 +17,7 @@ export async function getStaticProps() {
     content_type: 'photoGallery',
   })
 
-  const images: ContentfulImage[] = []
+  const allImages: ContentfulImage[] = []
   
   for (const gallery of pageRes.items) {
     if (!gallery?.fields?.photos) continue
@@ -29,7 +29,7 @@ export async function getStaticProps() {
       const buffer = await fetch(src).then(async (res) => Buffer.from(await res.arrayBuffer()))
       const { base64 } = await getPlaiceholder(buffer)
     
-      images.push({
+      allImages.push({
         url: src,
         blur: base64,
         altText: image?.fields?.title
@@ -39,7 +39,7 @@ export async function getStaticProps() {
 
 return {
     props: {
-      images
+      images: allImages
     }
   }
 }
