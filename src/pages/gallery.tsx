@@ -52,7 +52,7 @@ const About = ({
   images: ContentfulImage[]
 }) => {
   return (
-    <Layout transparent={false} pageTitle='gallery'>
+    <Layout transparent={false} pageTitle='Gallery'>
       <div className='w-screen grid grid-cols-2 md:grid-cols-3 gap-1 lg:gap-6 mt-3 lg:mt-8 mb-3 lg:mb-8 px-3 lg:px-8'>
         {
           images.map((image, index) => (
