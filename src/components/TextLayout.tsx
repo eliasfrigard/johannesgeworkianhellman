@@ -9,15 +9,15 @@ import { BLOCKS } from '@contentful/rich-text-types'
 const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node: any) => {
-      if (node.data.target.sys.contentType.sys.id === "video") {
+      if (node.data.target.sys.contentType.sys.id === 'video') {
         return (
           <Video
-            className="pt-0 pb-2 md:pt-4 md:pb-5"
+            className='pt-0 pb-2 md:pt-4 md:pb-5'
             key={node.data.target.fields.name}
             title={node.data.target.fields.name}
             link={node.data.target.fields.youTubeLink}
           />
-        );
+        )
       }
     },
     [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
@@ -34,15 +34,7 @@ const options = {
   },
 }
 
-const TextLayout = ({ 
-  text, 
-  type = 'dynamic', 
-  className,
-} : {
-  text: any
-  type?: string
-  className?: string
-}) => {
+const TextLayout = ({ text, type = 'dynamic', className }: { text: any; type?: string; className?: string }) => {
   let textLength = 0
 
   text?.content.forEach((t: any) => {
@@ -57,15 +49,18 @@ const TextLayout = ({
     })
   })
 
-  const textContent = text.content.filter((v: any) => {
-    if (v.nodeType !== 'paragraph') return true
-
-    return v.content[0].value.length > 0
-  })
+  const content = text?.content
+    .map((t: any) => {
+      if (t.nodeType === 'paragraph') {
+        t.content = t.content.filter((v: any) => v.nodeType !== 'text' || v.value?.length > 0)
+      }
+      return t
+    })
+    .filter((t: any) => t.nodeType !== 'paragraph' || t.content.length > 0)
 
   const textDocument = {
     ...text,
-    content: textContent,
+    content,
   }
 
   const maxLengthForTwoColumns = 1500
