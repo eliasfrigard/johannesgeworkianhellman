@@ -1,15 +1,11 @@
 import Image from 'next/image'
-import Layout from "@/layouts/default"
+import Layout from '@/layouts/default'
 import TextLayout from '@/components/TextLayout'
 
 import { createClient } from 'contentful'
 import { getPlaiceholder } from 'plaiceholder'
 
-import {
-  Hero,
-  AnimateIn,
-  getImageBuffer
-} from 'eliasfrigard-reusable-components/dist/app'
+import { Hero, AnimateIn, getImageBuffer } from 'eliasfrigard-reusable-components/dist/app'
 
 export async function getStaticProps() {
   const contentful = createClient({
@@ -40,12 +36,12 @@ export async function getStaticProps() {
       hero: {
         altText: hero?.fields?.title,
         blur: heroBlur,
-        url: heroUrl
+        url: heroUrl,
       },
       mobileHero: {
         altText: mobileHero ? mobileHero?.fields?.title : hero?.fields?.title,
         blur: mobileHeroBlur,
-        url: mobileHeroUrl
+        url: mobileHeroUrl,
       },
       pageTitle: page.title,
       biography: page.biography,
@@ -58,15 +54,18 @@ const About = ({
   mobileHero,
   pageTitle,
   biography,
-} : {
-  hero: { altText: string, url: string },
-  mobileHero: { altText: string, url: string },
-  pageTitle: string,
+}: {
+  hero: { altText: string; url: string }
+  mobileHero: { altText: string; url: string }
+  pageTitle: string
   biography: string
 }) => {
   return (
-    <Layout transparent={true} pageTitle={pageTitle}>
-      <div className="fixed w-full h-full -z-10">
+    <Layout
+      transparent={true}
+      pageTitle={pageTitle}
+    >
+      <div className='fixed w-full h-full -z-10 text-white'>
         <Hero
           spaced={false}
           Image={Image}
@@ -75,11 +74,19 @@ const About = ({
           overlay={false}
           imagePosition='top'
           parallaxSpeed={0}
-        />
+        >
+          <div className='fixed w-full h-full bg-white opacity-30' />
+        </Hero>
       </div>
 
-      <AnimateIn threshold={0} className='text-center md:text-justify leading-[2rem] tracking-wide font-sans z-10 px-3 md:px-10 pt-2 lg:pt-0 mb-4 lg:mb-8 mt-8 lg:mt-8'>
-        <TextLayout text={biography} className='text-primary-700 font-medium' />
+      <AnimateIn
+        threshold={0}
+        className='text-center md:text-justify leading-[2rem] tracking-wide font-sans z-10 px-3 md:px-10 pt-2 lg:pt-0 mb-4 lg:mb-8 mt-8 lg:mt-8'
+      >
+        <TextLayout
+          text={biography}
+          className='text-primary-600 font-medium'
+        />
       </AnimateIn>
     </Layout>
   )
