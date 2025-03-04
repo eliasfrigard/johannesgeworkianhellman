@@ -1,19 +1,16 @@
 import Image from 'next/image'
-import Layout from "@/layouts/default"
+import Layout from '@/layouts/default'
 import type { ContentfulImage } from '../types'
 
 import { createClient } from 'contentful'
 import { getPlaiceholder } from 'plaiceholder'
 
-import {
-  Hero,
-  getImageBuffer
-} from 'eliasfrigard-reusable-components/dist/app'
+import { Hero, getImageBuffer } from 'eliasfrigard-reusable-components/dist/app'
 
 import AnimateIn from '@/components/AnimateIn'
 import Video from '@/components/Video'
 
-import { BiSolidQuoteAltLeft } from "react-icons/bi";
+import { BiSolidQuoteAltLeft } from 'react-icons/bi'
 
 export async function getStaticProps() {
   const contentful = createClient({
@@ -58,7 +55,7 @@ export async function getStaticProps() {
       hero: heroImage,
       mobileHero: mobileHeroImage,
       video: page?.video,
-      quotes: quotes.map((quote: any) => quote.fields)
+      quotes: quotes.map((quote: any) => quote.fields),
     },
   }
 }
@@ -68,18 +65,16 @@ export default function Home({
   mobileHero,
   pageTitle,
   quotes,
-  video
-} : {
-  hero: ContentfulImage,
-  mobileHero: ContentfulImage,
+  video,
+}: {
+  hero: ContentfulImage
+  mobileHero: ContentfulImage
   pageTitle: string
   quotes: any[]
   video: any
 }) {
   return (
-    <Layout
-      pageTitle="Home"
-    >
+    <Layout pageTitle='Home'>
       <Hero
         spaced={false}
         Image={Image}
@@ -91,28 +86,36 @@ export default function Home({
 
       <div className='bg-primary-700 flex flex-col gap-8 lg:gap-16 justify-center items-center py-8 lg:py-16 px-4'>
         <AnimateIn className='container aspect-video'>
-          <Video 
+          <Video
             title={video.fields.title}
             link={video.fields.youTubeLink}
             prominent
             className='w-full'
-            />
+          />
         </AnimateIn>
 
-        <div className='container grid grid-cols-1 lg:grid-cols-3 gap-8'>
-          {
-            quotes.map((quote, index) => {
-              return (
-                <AnimateIn delay={index * 350} key={index} className='flex'>
-                  <div className={`flex flex-col gap-3 ${index !== quotes.length -1 ? 'lg:border-r border-primary-300 border-opacity-20' : ''} text-center items-center lg:items-start lg:text-left px-3`}>
-                    <BiSolidQuoteAltLeft className='text-accent-500 opacity-90 text-3xl' />
-                    <blockquote className='text-xl lg:text-3xl font-bold text-primary-300 leading-normal'>{quote.quote}</blockquote>
-                    <p className='text-white italic opacity-80'>- {quote.author}</p>
-                  </div>
-                </AnimateIn>
-              )
-            })
-          }
+        <div className='container flex flex-col lg:grid lg:grid-cols-3 gap-8 justify-center items-center'>
+          {quotes.map((quote, index) => {
+            return (
+              <AnimateIn
+                delay={index * 350}
+                key={index}
+                className='flex'
+              >
+                <div
+                  className={`flex flex-col gap-3 ${
+                    index !== quotes.length - 1 ? 'lg:border-r border-primary-300 border-opacity-20' : ''
+                  } text-center items-center lg:items-start lg:text-left px-3`}
+                >
+                  <BiSolidQuoteAltLeft className='text-accent-500 opacity-90 text-3xl' />
+                  <blockquote className='text-xl lg:text-3xl font-bold text-primary-300 leading-normal'>
+                    {quote.quote}
+                  </blockquote>
+                  <p className='text-white italic opacity-80'>- {quote.author}</p>
+                </div>
+              </AnimateIn>
+            )
+          })}
         </div>
       </div>
     </Layout>
